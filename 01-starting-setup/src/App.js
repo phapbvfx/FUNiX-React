@@ -1,4 +1,5 @@
 import { Lab2 } from "./labs";
+import Lab7 from "./labs/Lab 7.1 (Resource)/index.jsx";
 import Lab05 from "./labs/Lab05";
 import Expenses from "./labs/lab2/lab2.8";
 
@@ -9,6 +10,7 @@ function App() {
       <Lab2 />
       <Expenses />
       <Lab05 />
+      <Lab7 />
     </div>
   );
 }
