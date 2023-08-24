@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NewTask from "./components/NewTask/NewTask";
 import Tasks from "./components/Tasks/Tasks";
-import useHttp from "./hooks/useHttp.js";
+import useHttp from "../../hooks/useHttp.js";
 const URL =
   "https://assignment03-61e91-default-rtdb.asia-southeast1.firebasedatabase.app/tasks.json";
 

@@ -1,6 +1,6 @@
+import useHttp from "../../../../hooks/useHttp.js";
 import Section from "../UI/Section";
 import TaskForm from "./TaskForm";
-import useHttp from "../../hooks/useHttp.js";
 
 const NewTask = (props) => {
   const { loading, error, sendRequest: postNewTask } = useHttp();

@@ -3,16 +3,20 @@ import React, { useState } from "react";
 import classes from "./MealItemForm.module.css";
 
 const MealItemForm = ({ onSubmit }) => {
-  const [itemAmount, setItemAmount] = useState(0);
+  const [itemAmount, setItemAmount] = useState(1);
 
   const handlerChangeItemAmount = (e) => {
+    if (!(+e.target.value > 0)) {
+      alert("you must enter greater than or equal 1");
+      return;
+    }
     setItemAmount(+e.target.value);
   };
 
   const handlerFormSubmit = (e) => {
     e.preventDefault();
     onSubmit(itemAmount);
-    setItemAmount(0);
+    setItemAmount(1);
   };
 
   return (
