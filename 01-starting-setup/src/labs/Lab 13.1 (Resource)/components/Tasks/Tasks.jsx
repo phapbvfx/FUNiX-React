@@ -24,7 +24,6 @@ const Tasks = ({ items, error, loading, onFetch }) => {
   if (loading) {
     content = "Loading tasks...";
   }
-  console.log(items);
   return (
     <Section>
       <div className={classes.container}>{content}</div>
