@@ -13,10 +13,17 @@ const AddUser = (props) => {
 
   const addUserHandler = (e) => {
     e.preventDefault();
-    if (userName.trim().length === 0 || userAge.trim().length === 0) {
+    if (userName.trim().length === 0) {
       setError({
-        message: "Please enter a valid name and age (non-empty values)",
+        message: "Please enter a valid name  (non-empty values)",
         title: "Invalid input(name)",
+      });
+      return;
+    }
+    if (userAge && userAge.trim().length === 0) {
+      setError({
+        message: "Please enter a valid age (non-empty values)",
+        title: "Invalid input(age)",
       });
       return;
     }
@@ -28,7 +35,6 @@ const AddUser = (props) => {
       return;
     }
 
-    console.log(userAge, userName);
     const newUser = { name: userName, age: userAge };
     props.onAddUser(newUser);
 
