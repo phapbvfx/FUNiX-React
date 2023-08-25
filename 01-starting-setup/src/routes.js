@@ -11,6 +11,9 @@ import Lab12 from "./labs/Lab 12.1 (Resource)/Lab12.jsx";
 import Lab13 from "./labs/Lab 13.1 (Resource)/Lab13.jsx";
 import Lab14 from "./labs/Lab 14.1 (Resource)/Lab14.jsx";
 import Lab15 from "./labs/Lab15/Lab15.jsx";
+import Lab16 from "./labs/Lab16/Lab16.jsx";
+import Auth from "./labs/Lab16/counter/Auth.jsx";
+import Counter from "./labs/Lab16/counter/Counter.jsx";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +63,14 @@ const router = createBrowserRouter([
       {
         path: "lab15",
         element: <Lab15 />,
+      },
+      {
+        path: "lab16",
+        element: <Lab16 />,
+        children: [
+          { index: true, element: <Counter /> },
+          { path: "login", element: <Auth /> },
+        ],
       },
     ],
   },

@@ -12,6 +12,7 @@ const navigateData = [
   { label: "Lab13", path: "/lab13" },
   { label: "Lab14", path: "/lab14" },
   { label: "Lab15", path: "/lab15" },
+  { label: "Lab16", path: "/lab16" },
 ];
 
 const MainNavigate = () => {

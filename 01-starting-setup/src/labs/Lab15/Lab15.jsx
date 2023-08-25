@@ -8,7 +8,6 @@ import "./Lab15.css";
 const Lab15 = () => {
   return (
     <Provider store={store}>
-      {" "}
       <Counter />
     </Provider>
   );
