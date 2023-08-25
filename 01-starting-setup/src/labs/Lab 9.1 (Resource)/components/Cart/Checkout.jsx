@@ -3,9 +3,9 @@ import { useRef, useState } from "react";
 import classes from "./Checkout.module.css";
 
 const isEmpty = (value) => value.trim() === "";
-const isFiveChars = (value) => value.trim().length === 5;
+const isFiveChars = (value) => value.trim().length >= 5;
 
-const Checkout = (props) => {
+const Checkout = ({ onConfirm, onCancel, loading }) => {
   const [formInputsValidity, setFormInputsValidity] = useState({
     name: true,
     street: true,
@@ -45,10 +45,11 @@ const Checkout = (props) => {
       enteredPostalCodeIsValid;
 
     if (!formIsValid) {
+      console.log(enteredPostalCode);
       return;
     }
 
-    props.onConfirm({
+    onConfirm({
       name: enteredName,
       street: enteredStreet,
       city: enteredCity,
@@ -100,7 +101,7 @@ const Checkout = (props) => {
           ref={postalCodeInputRef}
         />
         {!formInputsValidity.postalCode && (
-          <p>Please enter a valid postal code (5 characters long)!</p>
+          <p>Please enter a valid postal code (&gt;=5 characters long)!</p>
         )}
       </div>
       <div className={cityControlClasses}>
@@ -115,11 +116,13 @@ const Checkout = (props) => {
       <div className={classes.actions}>
         <button
           type="button"
-          onClick={props.onCancel}
+          onClick={onCancel}
         >
           Cancel
         </button>
-        <button className={classes.submit}>Confirm</button>
+        <button className={classes.submit}>
+          {loading ? "Sending..." : "Confirm"}
+        </button>
       </div>
     </form>
   );

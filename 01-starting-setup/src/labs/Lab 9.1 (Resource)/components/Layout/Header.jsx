@@ -17,7 +17,6 @@ const Header = () => {
   const handleClick = () => {
     cartContext.handlerShowModal();
   };
-  console.log(cartContext);
   useEffect(() => {
     if (items.length > 0) {
       const totalQuantity = items.reduce(

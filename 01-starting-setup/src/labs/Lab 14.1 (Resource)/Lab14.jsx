@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import classes from "./Lab14.module.css";
 
@@ -9,6 +9,8 @@ const Lab14 = () => {
     isValid: true,
     message: "",
   });
+
+  const inputNameRef = useRef();
 
   const handlerNameInput = (e) => {
     const name = e.target.value.trim();
@@ -30,12 +32,22 @@ const Lab14 = () => {
       message: !isValid ? "Please enter your email" : "",
     }));
   };
-
+  const handlerFormSubmit = (e) => {
+    e.preventDefault();
+    if (!name.isValid & !email.isValid) {
+      alert("Please complete form!");
+      return;
+    }
+    setName((prev) => ({ value: "", isValid: true, message: "" }));
+    setEmail((prev) => ({ value: "", isValid: true, message: "" }));
+    inputNameRef.current.focus();
+  };
   return (
     <div className={classes.app}>
       <form
         action=""
         className={classes["form-control"]}
+        onSubmit={handlerFormSubmit}
       >
         <label htmlFor="name">
           Your Name{" "}
@@ -46,6 +58,7 @@ const Lab14 = () => {
             id="name"
             value={name.value}
             onChange={handlerNameInput}
+            ref={inputNameRef}
           />
         </label>
 
@@ -67,6 +80,7 @@ const Lab14 = () => {
         {!email.isValid && email.message && (
           <p className={classes["error-text"]}>{email.message}</p>
         )}
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

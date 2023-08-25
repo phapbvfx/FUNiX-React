@@ -10,6 +10,7 @@ import Lab11 from "./labs/Lab 11.1 (Resource)/Lab11.jsx";
 import Lab12 from "./labs/Lab 12.1 (Resource)/Lab12.jsx";
 import Lab13 from "./labs/Lab 13.1 (Resource)/Lab13.jsx";
 import Lab14 from "./labs/Lab 14.1 (Resource)/Lab14.jsx";
+import Lab15 from "./labs/Lab15/Lab15.jsx";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "lab14",
         element: <Lab14 />,
+      },
+      {
+        path: "lab15",
+        element: <Lab15 />,
       },
     ],
   },
