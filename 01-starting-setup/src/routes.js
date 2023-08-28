@@ -19,6 +19,10 @@ import Counter from "./labs/Lab16/counter/Counter.jsx";
 import { Lab2 } from "./labs/index.js";
 import Expenses from "./labs/lab2/lab2.8/index.js";
 import MainNavigate from "./labs/mainNavigate.jsx";
+import Lab20 from "./labs/Lab 20.1 (Starter)/Lab20.jsx";
+import HomePage from "./labs/Lab 20.1 (Starter)/pages/HomePage.js";
+import AuthPage from "./labs/Lab 20.1 (Starter)/pages/AuthPage.js";
+import UserProfile from "./labs/Lab 20.1 (Starter)/components/Profile/UserProfile.js";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +101,24 @@ const router = createBrowserRouter([
           {
             path: "*",
             element: <NotFound />,
+          },
+        ],
+      },
+      {
+        path: "lab20",
+        element: <Lab20 />,
+        children: [
+          {
+            index: true,
+            element: <HomePage />,
+          },
+          {
+            path: "auth",
+            element: <AuthPage />,
+          },
+          {
+            path: "profile",
+            element: <UserProfile />,
           },
         ],
       },
